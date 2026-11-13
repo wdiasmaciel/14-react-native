@@ -14,6 +14,7 @@ export default function RootLayout() {
         headerTitleAlign: 'center',
         headerLeft: () => (
           <TouchableOpacity
+            style={{ marginLeft: 8 }}
             accessibilityRole="button"
             accessibilityLabel="Voltar para o início"
             onPress={() => router.navigate('/(tabs)')}
