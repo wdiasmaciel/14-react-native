@@ -3,7 +3,7 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import { useRouter } from 'expo-router';
 
 export default function DetalhesDoProduto() {
-  // Captura os parâmetros passados na URL/Rota
+  // Captura os parâmetros passados na URL/Rota:
   const { id, nome } = useLocalSearchParams();
   const identificador = Array.isArray(id) ? id[0] : id;
   const router = useRouter();
@@ -12,8 +12,10 @@ export default function DetalhesDoProduto() {
     <>
       <Stack.Screen options={{ title: `Produto ${identificador}` }} />
       <View style={styles.conteudo}>
-        <Text style={styles.texto}>ID do Produto: {id}</Text>
-        <Text style={styles.texto}>Nome do Produto: {nome}</Text>
+        <View style={styles.detalhes}>
+          <Text style={styles.texto}>ID do Produto: {id}</Text>
+          <Text style={styles.texto}>Nome do Produto: {nome}</Text>
+        </View>
         <TouchableOpacity
           style={styles.botao}
           activeOpacity={0.75}
@@ -27,6 +29,12 @@ export default function DetalhesDoProduto() {
 
 const styles = StyleSheet.create({
   conteudo: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingBottom: 24,
+  },
+  detalhes: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

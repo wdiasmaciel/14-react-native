@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useLocalSearchParams, Link } from 'expo-router';
 
 export default function Detalhes() {
-  // Recuperando os parâmetros enviados pela tela inicial:
+  // Captura os parâmetros passados na URL/Rota:
   const { id, nome } = useLocalSearchParams<{
     id?: string | string[];
     nome?: string | string[];
@@ -16,7 +16,7 @@ export default function Detalhes() {
       
       <View style={styles.card}>
         <Text style={styles.text}>ID do Produto: {identificador}</Text>
-        <Text style={styles.text}>Nome: {nomeProduto}</Text>
+        <Text style={styles.text}>Nome do Produto: {nomeProduto}</Text>
       </View>
 
       <Link href="/" style={styles.backLink}>

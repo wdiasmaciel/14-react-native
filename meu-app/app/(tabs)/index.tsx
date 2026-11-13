@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
   botao: {
     flex: 1,
     minWidth: 0,
-    width: 5,
     paddingVertical: 14,
     paddingHorizontal: 12,
     borderRadius: 8,
