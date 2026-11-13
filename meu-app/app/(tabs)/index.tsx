@@ -3,7 +3,7 @@ import { Link, useRouter } from 'expo-router';
 
 export default function Home() {
   const router = useRouter();
-  const produto = { id: '45', nome: 'Notebook Dell' };
+  const produto = { id: '45', nome: 'Notebook Gamer' };
 
   return (
     <View style={styles.container}>
@@ -11,16 +11,17 @@ export default function Home() {
       <View style={styles.separador} />
       <View style={styles.painel}>
         {/* Navegação passando um objeto no href: */}
-      <Link
-        href={{
-          pathname: '/(screens)/detalhes',
-          params: produto,
-        }}
-        style={styles.botao}
-      >
-        <Text style={styles.textoDoBotao}>Ver Detalhes do Produto</Text>
-      </Link>
-
+        <Link
+          href={{
+            pathname: '/(screens)/detalhe',
+            params: produto,
+          }}
+          asChild
+        >
+          <TouchableOpacity style={styles.botao} activeOpacity={0.75}>
+            <Text style={styles.textoDoBotao}>Detalhar Produto</Text>
+          </TouchableOpacity>
+        </Link>
 
         <TouchableOpacity
           style={styles.botao}
@@ -52,11 +53,20 @@ const styles = StyleSheet.create({
     borderColor: 'red',
     backgroundColor: 'red',
   },
-  painel: {flex: 1},
+  painel: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 12,
+    paddingHorizontal: 16,
+  },
   botao: {
-    minWidth: 220,
+    flex: 1,
+    minWidth: 0,
+    width: 5,
     paddingVertical: 14,
-    paddingHorizontal: 20,
+    paddingHorizontal: 12,
     borderRadius: 8,
     alignItems: 'center',
     backgroundColor: '#2563EB',
@@ -70,5 +80,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+    textAlign: 'center',
   },
 });

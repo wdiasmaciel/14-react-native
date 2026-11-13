@@ -3,15 +3,20 @@ import { useLocalSearchParams, Link } from 'expo-router';
 
 export default function Detalhes() {
   // Recuperando os parâmetros enviados pela tela inicial:
-  const { id, nome } = useLocalSearchParams();
+  const { id, nome } = useLocalSearchParams<{
+    id?: string | string[];
+    nome?: string | string[];
+  }>();
+  const identificador = Array.isArray(id) ? id[0] : id;
+  const nomeProduto = Array.isArray(nome) ? nome[0] : nome;
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Detalhes do Produto</Text>
       
       <View style={styles.card}>
-        <Text style={styles.text}>ID do Produto: {id}</Text>
-        <Text style={styles.text}>Nome: {nome}</Text>
+        <Text style={styles.text}>ID do Produto: {identificador}</Text>
+        <Text style={styles.text}>Nome: {nomeProduto}</Text>
       </View>
 
       <Link href="/" style={styles.backLink}>
@@ -59,6 +64,6 @@ const styles = StyleSheet.create({
 });
 
 /*
- * 1) useLocalSearchParams(): hook que lê de forma reativa os 
- *    parâmetros da URL atual: /detalhes?id=123&nome=Notebook%20Gamer
+ * 1) useLocalSearchParams(): hook que lê de forma reativa os
+ *    parâmetros da URL atual: /detalhe?id=123&nome=Notebook%20Gamer
  */
