@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 
 export default function Home() {
   const router = useRouter();
@@ -10,6 +10,18 @@ export default function Home() {
       <Text style={styles.titulo}>Home Page</Text>
       <View style={styles.separador} />
       <View style={styles.painel}>
+        {/* Navegação passando um objeto no href: */}
+      <Link
+        href={{
+          pathname: '/(screens)/detalhes',
+          params: produto,
+        }}
+        style={styles.botao}
+      >
+        <Text style={styles.textoDoBotao}>Ver Detalhes do Produto</Text>
+      </Link>
+
+
         <TouchableOpacity
           style={styles.botao}
           activeOpacity={0.75}
@@ -40,6 +52,7 @@ const styles = StyleSheet.create({
     borderColor: 'red',
     backgroundColor: 'red',
   },
+  painel: {flex: 1},
   botao: {
     minWidth: 220,
     paddingVertical: 14,
