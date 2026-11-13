@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function RootLayout() {
+export default function LayoutPilha() {
   const router = useRouter();
 
   return (
